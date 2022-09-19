@@ -2,13 +2,12 @@
 
 #root {
   display: grid;
-  grid-template-columns: repeat(auto-fill, 280px);
+  grid-template-columns: repeat(auto-fill, 270px);
   padding: 56px;
   gap: 15px;
   margin-left: 10px;
   text-align: center;
   font-family: sora;
-  
 }
 
 body {
@@ -16,7 +15,6 @@ body {
   padding: 0;
   background-image: linear-gradient(180deg, lightskyblue, purple);
   min-height: 100vh;
-  
 }
 
 .item-wrapper {
@@ -32,11 +30,6 @@ body {
   background-repeat: no-repeat;
   background-position: center; 
   background-size: auto;
-}
-
-.item-wrapper:hover {
-  transform: rotate3d("45deg");
-  transition: all 5s;
 }
 
 .filter-wrapper {
@@ -57,20 +50,6 @@ body {
   border-radius: 8px;
   width: 80px;
   height: 24px;
-}
-
-.imagem-produto {
-  width: 200px;
-  height: 200px;
-}
-
-
-h2 {
-  /* height: 70px;
-  white-space: nowrap; 
-  overflow: hidden;
-  text-overflow: ellipsis;
-  word-wrap: break-all; */
 }
 
 .item-name {
@@ -115,11 +94,52 @@ input[type=checkbox] {
 input:checked + span {
   background-color: #434ce8;
 }
+
 input:checked + span:before {
   transform: translateX(calc(100% - 2px));
 }
+
 input:focus + span {
   box-shadow: 0 0 0 4px var(--c-background-tertiary);
+}
+
+.imagem-produto {
+  width: 200px;
+  height: 200px;
+}
+
+.imagem-produto:hover {
+  transition: all 1s;
+  width: 270px;
+  height: 300px;
+}
+
+.item-info-container {
+  display:flex;
+  justify-content: center;
+  align-items: center;
+  flex-flow: column wrap;
+}
+
+.item-wrapper:hover > .item-info-container {
+  display: none;
+}
+
+
+
+.item-wrapper:hover > .item-image {
+  width: 270px;
+  height: 300px;
+}
+
+.item-info-marca { 
+  color: grey;
+  font-size: 1rem;
+}
+
+.item-info-preco { 
+  font-size: 25px;
+  margin: 0px;
 }
 
 input[type=text] {
@@ -161,7 +181,6 @@ select {
  select option {
 	 color: inherit;
    background-color: rgba(0, 0, 0, 0.6);
-   opacity: 0;
 
 }
  select:focus {
@@ -170,8 +189,17 @@ select {
 }
  select::-ms-expand {
 	 display: none;
+   opacity: 0.6;
 }
 
 .imagem-logo {
   height:50px;
 }
+
+
+/* @media screen and (min-width: 320px) and (max-width: 1024px) {
+  .typography--8 {
+    font-size: 6px;
+    color: red;
+  }
+} */

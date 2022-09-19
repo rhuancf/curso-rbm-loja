@@ -9,35 +9,37 @@
     <title>RBM Store</title>
   </head>
   <body>
-    <div class="filter-wrapper">
-      <img class="imagem-logo" src="./img/teste3.svg"/>
-      <select id="select-filtro-tamanho" value="Todos">
-        <option value="Todos">Tamanho</option>
-        <option value="P">P</option>
-        <option value="M">M</option>
-        <option value="G">G</option>
-        <option value="GG">GG</option>
-      </select>
+    <header>
+      <div class="filter-wrapper">
+        <img class="imagem-logo" src="./img/teste3.svg"/>
+        <select id="select-filtro-tamanho" value="Todos">
+          <option value="Todos">Tamanho</option>
+          <option value="P">P</option>
+          <option value="M">M</option>
+          <option value="G">G</option>
+          <option value="GG">GG</option>
+        </select>
 
-      <select id="select-filtro-preco" value="Preco">
-        <option value="Todos">Preco</option>
-        <option value="crescente">Menor -> Maior</option>
-        <option value="decrescente">Maior -> Menor</option>
-      </select>
+        <select id="select-filtro-preco" value="Preco">
+          <option value="Todos">Preco</option>
+          <option value="crescente">Menor -> Maior</option>
+          <option value="decrescente">Maior -> Menor</option>
+        </select>
 
-      <input type="text" placeholder="Categoria" id="input-filtro-categoria" />
-      <label class="toggle">
-        <input type="checkbox" id="checkbox-filtro-categoria"></input>
-        <span></span>
-      </label>
+        <input type="text" placeholder="Categoria" id="input-filtro-categoria" />
+        <label class="toggle">
+          <input type="checkbox" id="checkbox-filtro-categoria"></input>
+          <span></span>
+        </label>
 
-      <input type="text" placeholder="Primeira cor" id="input-filtro-cor1" />
-      <input type="text" placeholder="Segunda cor" id="input-filtro-cor2" />
-      <label class="toggle">
-        <input type="checkbox" id="checkbox-filtro-cor"></input>
-        <span></span>
-      </label>
-    </div>
+        <input type="text" placeholder="Primeira cor" id="input-filtro-cor1" />
+        <input type="text" placeholder="Segunda cor" id="input-filtro-cor2" />
+        <label class="toggle">
+          <input type="checkbox" id="checkbox-filtro-cor"></input>
+          <span></span>
+        </label>
+      </div>
+    </header>
     <div id="root"></div>
     <script src="./scripts/index.js" type="module"></script>
   </body>
