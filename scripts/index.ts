@@ -8,7 +8,7 @@ const blusas:Blusa[] = [
   { id: 5, marca: "calvo cleide", modelo: "blusa do kimetsu no yaiba", preco: 32.99, tamanho:"M", cores:["branco", "verde", "preto"], categoria:"camisa", imageUrl:'https://cf.shopee.com.br/file/238ed9ae75bc8490cb57eee1ed352c2e' },
   { id: 6, marca: "pia", modelo: "blusa do boruto", preco: 1.99, tamanho:"G", cores:["preto", "amarelo", "azul"], categoria:"blusa", imageUrl:'https://cf.shopee.com.br/file/97284bb98b6c4805e43b2c1903d5db08' },
   { id: 21, marca: "cavalera", modelo: "blusa do cavalo de fogo", preco: 8.99, tamanho:"GG", cores:["branco", "roxo","vermelho"], categoria:"blusa", imageUrl:'http://d3ugyf2ht6aenh.cloudfront.net/stores/186/674/products/camiseta-cinza-cavalo-de-fogo-nostalgia-desenho-animado-anos-70-80-90-16301-f2bcfc1253b9608e3915709119586563-640-0.jpg'},
-  { id: 123, marca: "reserva", modelo: "blusa do cavalo de fogo azul solar da peste negra camelos da noite vinte e doze por quatorze tatu bola camarao telefone saci macaco samurai Wagner Tony Fernandes ", preco: 25.99, tamanho:"G", cores:["azul", "branco", "vermelho", "preto"], categoria:"blusa", imageUrl:'https://http2.mlstatic.com/D_NQ_NP_768880-MLB46470593884_062021-O.jpg' },
+  { id: 123, marca: "reserva", modelo: "blusa do cavalo de fogo azul", preco: 25.99, tamanho:"G", cores:["azul", "branco", "vermelho", "preto"], categoria:"blusa", imageUrl:'https://http2.mlstatic.com/D_NQ_NP_768880-MLB46470593884_062021-O.jpg' },
 ];
 
 const rootElement = document.querySelector("#root");
@@ -79,7 +79,7 @@ function filtraCategoria (arrayDeBlusas:Blusa[] = blusas) {
   const checkboxCategoriaChecked = (checkboxCategoria as HTMLInputElement).checked;
   let newBlusas:Blusa[] = arrayDeBlusas;
   if(checkboxCategoriaChecked) {
-    const inputFiltroCategoriaValue = (inputFiltroCategoria as HTMLInputElement).value;
+    const inputFiltroCategoriaValue = (inputFiltroCategoria as HTMLInputElement).value.toLowerCase();
     console.log(inputFiltroCategoriaValue);
     newBlusas = newBlusas.filter((blusa) => blusa['categoria'].includes(inputFiltroCategoriaValue));
 
@@ -113,7 +113,7 @@ function filtraCor (arrayDeBlusas:Blusa[] = blusas) {
   const checkboxCorChecked = (checkboxCor as HTMLInputElement).checked;
   let newBlusas = arrayDeBlusas;
   if(checkboxCorChecked) {
-    const inputFiltroCor1Value = (inputFiltroCor1 as HTMLInputElement).value;
+    const inputFiltroCor1Value = (inputFiltroCor1 as HTMLInputElement).value.toLowerCase();
     if(inputFiltroCor1Value !== ''){
       newBlusas = newBlusas.filter((blusa) => {
         let flag = false;
@@ -125,7 +125,7 @@ function filtraCor (arrayDeBlusas:Blusa[] = blusas) {
   
     }
     console.log(newBlusas);
-    const inputFiltroCor2Value = (inputFiltroCor2 as HTMLInputElement).value;
+    const inputFiltroCor2Value = (inputFiltroCor2 as HTMLInputElement).value.toLowerCase();
     if(inputFiltroCor2Value !== ''){
       newBlusas = newBlusas.filter((blusa) => {
         let flag = false;
