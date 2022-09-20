@@ -1,4 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Sora:wght@300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto&family=Sora:wght@300&display=swap');
+
 
 #root {
   display: grid;
@@ -177,6 +179,8 @@ select {
 	/* <option> colors */
 	/* Remove focus outline */
 	/* Remove IE arrow */
+  /* background-image: url('https://upload.wikimedia.org/wikipedia/commons/9/9d/Caret_down_font_awesome_whitevariation.svg'); */
+  background-color: transparent;
 }
  select option {
 	 color: inherit;
@@ -187,6 +191,7 @@ select {
 	 outline: none;
    
 }
+ 
  select::-ms-expand {
 	 display: none;
    opacity: 0.6;
@@ -203,3 +208,88 @@ select {
     color: red;
   }
 } */
+
+
+.ham {
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+  transition: transform 400ms;
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+.line {
+  fill:none;
+  transition: stroke-dasharray 400ms, stroke-dashoffset 400ms;
+  stroke:rgb(255, 255, 255);
+  stroke-width:5.5;
+  stroke-linecap:round;
+}
+
+.ham .top {
+  stroke-dasharray: 40 172;
+}
+.ham .middle {
+  stroke-dasharray: 40 111;
+}
+.ham .bottom {
+  stroke-dasharray: 40 172;
+}
+.ham.active .top {
+  stroke-dashoffset: -132px;
+}
+.ham.active .middle {
+  stroke-dashoffset: -71px;
+}
+.ham.active .bottom {
+  stroke-dashoffset: -132px;
+}
+
+.ham {
+  height: 50px;
+  margin-left: 30px;
+  z-index: 99;
+}
+
+.sidebar-menu {
+  /* display: none; */
+  position:fixed;
+  flex-direction: column;
+  align-items: flex-start;
+  padding-left: 10px;
+  font-size: 30px;
+  gap: 5px;
+  top: 55px;
+  left: 5500px;
+  background-color: grey;
+  width: 0%;
+  height: 100%;
+  padding-top: 50px;
+  z-index: 99;
+  font-family: roboto;
+
+}
+
+.ham.active ~ .sidebar-menu{
+  display:flex; 
+  z-index: 0;
+  background-color: rgba(3, 2, 2, 0.781);
+  transform: translateX(-4400px);
+  transition: .3s ease;
+  width: 100%;
+}
+
+a
+{
+  text-decoration: none;
+  color: white;
+  transition: color 0.3s ease;
+}
+
+a:hover
+{
+  color: lightslategray;
+}
+

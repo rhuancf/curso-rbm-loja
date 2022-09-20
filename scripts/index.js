@@ -1,5 +1,5 @@
 "use strict";
-const blusas = [
+const produtos = [
     { id: 1, marca: "lacosta", modelo: "Blusa do naruto", preco: 3.5, tamanho: "P", cores: ["amarelo", "preto", "vermelho"], categoria: "blusa", imageUrl: 'https://http2.mlstatic.com/D_NQ_NP_627789-MLB46515960810_062021-W.jpg' },
     { id: 2, marca: "lafrente", modelo: "Casaco do one piece", preco: 7.0, tamanho: "G", cores: ["branco", "preto", "amarelo"], categoria: "casaco", imageUrl: 'https://http2.mlstatic.com/D_NQ_NP_2X_725801-MLB44062191039_112020-F.webp' },
     { id: 311, marca: "ardidas", modelo: "Blusa do tokyo ghoul", preco: 12.5, tamanho: "M", cores: ["preto", "branco", "vermelho"], categoria: "blusa", imageUrl: 'https://img.elo7.com.br/product/zoom/1CA16D8/camiseta-tokyo-ghoul-kaneki-camiseta.jpg' },
@@ -21,12 +21,12 @@ const selectFiltroPreco = document.querySelector("#select-filtro-preco");
 const checkboxCor = document.querySelector("#checkbox-filtro-cor");
 const inputFiltroCor1 = document.querySelector("#input-filtro-cor1");
 const inputFiltroCor2 = document.querySelector("#input-filtro-cor2");
-// function criarFiltro(tipo: keyof Blusa, valor:string)  {
+// function criarFiltro(tipo: keyof Produto, valor:string)  {
 //   return {
 //     [tipo]: valor,
 //   }
 // }
-// const filtro = (criarFiltro("modelo", "blusa do naruto"));
+// const filtro = (criarFiltro("modelo", "produto do naruto"));
 // console.log(filtro);
 function render(itens) {
     if (rootElement) {
@@ -69,72 +69,72 @@ function scaleFontSize() {
         }
     }
 }
-function filtraCategoria(arrayDeBlusas = blusas) {
+function filtraCategoria(arrayDeProdutos = produtos) {
     const checkboxCategoriaChecked = checkboxCategoria.checked;
-    let newBlusas = arrayDeBlusas;
+    let newProdutos = arrayDeProdutos;
     if (checkboxCategoriaChecked) {
         const inputFiltroCategoriaValue = inputFiltroCategoria.value.toLowerCase();
         console.log(inputFiltroCategoriaValue);
-        newBlusas = newBlusas.filter((blusa) => blusa['categoria'].includes(inputFiltroCategoriaValue));
+        newProdutos = newProdutos.filter((produto) => produto['categoria'].includes(inputFiltroCategoriaValue));
     }
-    return newBlusas;
+    return newProdutos;
 }
-function filtraTamanho(arrayDeBlusas = blusas) {
+function filtraTamanho(arrayDeProdutos = produtos) {
     const selectFiltroTamanhoValue = selectFiltroTamanho.value;
-    let newBlusas = arrayDeBlusas;
+    let newProdutos = arrayDeProdutos;
     if (selectFiltroTamanhoValue !== 'Todos') {
-        newBlusas = newBlusas.filter((blusa) => blusa['tamanho'].includes(selectFiltroTamanhoValue));
+        newProdutos = newProdutos.filter((produto) => produto['tamanho'].includes(selectFiltroTamanhoValue));
     }
-    return newBlusas;
+    return newProdutos;
 }
-function filtraPreco(arrayDeBlusas = blusas) {
+function filtraPreco(arrayDeProdutos = produtos) {
     const selectFiltroPrecoValue = selectFiltroPreco.value;
-    let newBlusas = arrayDeBlusas;
+    let newProdutos = arrayDeProdutos;
     if (selectFiltroPrecoValue === 'crescente') {
-        newBlusas = newBlusas.sort((a, b) => a.preco < b.preco ? -1 : a.preco > b.preco ? 1 : 0);
+        newProdutos = newProdutos.sort((a, b) => a.preco < b.preco ? -1 : a.preco > b.preco ? 1 : 0);
     }
     if (selectFiltroPrecoValue === 'decrescente') {
-        newBlusas = newBlusas.sort((a, b) => a.preco > b.preco ? -1 : a.preco < b.preco ? 1 : 0);
+        newProdutos = newProdutos.sort((a, b) => a.preco > b.preco ? -1 : a.preco < b.preco ? 1 : 0);
     }
-    return newBlusas;
+    return newProdutos;
 }
-function filtraCor(arrayDeBlusas = blusas) {
+function filtraCor(arrayDeProdutos = produtos) {
     const checkboxCorChecked = checkboxCor.checked;
-    let newBlusas = arrayDeBlusas;
+    let newProdutos = arrayDeProdutos;
     if (checkboxCorChecked) {
         const inputFiltroCor1Value = inputFiltroCor1.value.toLowerCase();
         if (inputFiltroCor1Value !== '') {
-            newBlusas = newBlusas.filter((blusa) => {
+            newProdutos = newProdutos.filter((produto) => {
                 let flag = false;
-                blusa['cores'].forEach((e) => {
+                produto['cores'].forEach((e) => {
                     if (e.includes(inputFiltroCor1Value))
                         flag = true;
                 });
                 return flag;
             });
         }
-        console.log(newBlusas);
+        console.log(newProdutos);
         const inputFiltroCor2Value = inputFiltroCor2.value.toLowerCase();
         if (inputFiltroCor2Value !== '') {
-            newBlusas = newBlusas.filter((blusa) => {
+            newProdutos = newProdutos.filter((produto) => {
                 let flag = false;
-                blusa['cores'].forEach((e) => {
+                produto['cores'].forEach((e) => {
                     if (e.includes(inputFiltroCor2Value))
                         flag = true;
                 });
                 return flag;
             });
         }
-        console.log(newBlusas);
+        console.log(newProdutos);
     }
-    return newBlusas;
+    return newProdutos;
 }
 function aplicaFiltros() {
-    let newBlusas = filtraCategoria();
-    newBlusas = filtraTamanho(newBlusas);
-    newBlusas = filtraPreco(newBlusas);
-    newBlusas = filtraCor(newBlusas);
-    render(newBlusas);
+    let newProdutos = filtraCategoria();
+    newProdutos = filtraTamanho(newProdutos);
+    newProdutos = filtraPreco(newProdutos);
+    newProdutos = filtraCor(newProdutos);
+    render(newProdutos);
     scaleFontSize();
 }
 function eventListenerHandleInputCategoria() {
@@ -158,7 +158,7 @@ function eventListenerHandleInputCor2() {
 function eventListenerHandleCheckboxCor() {
     checkboxCor.addEventListener("change", aplicaFiltros);
 }
-render(blusas);
+render(produtos);
 eventListenerHandleInputCategoria();
 eventListenerHandleCheckboxCategoria();
 eventListenerHandleSelectTamanho();
