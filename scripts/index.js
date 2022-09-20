@@ -12,7 +12,10 @@ const produtos = [
     { id: 87, marca: "mike", modelo: "Tenis mike preto", preco: 354.99, tamanho: "Todos", cores: ["preto", "vermelho"], categoria: "tenis", imageUrl: 'https://imgs.extra.com.br/1519876725/1xg.jpg?imwidth=292' },
     { id: 17, marca: "Gucci", modelo: "Calça Jeans Feminina", preco: 154.99, tamanho: "G", cores: ["azul"], categoria: "calça", imageUrl: 'https://i.pinimg.com/564x/e7/c6/0c/e7c60c558fab8b7355b1fdd189742a9b.jpg' },
     { id: 11, marca: "GAP", modelo: "Moletom GAP", preco: 354.99, tamanho: "G", cores: ["cinza", "rosa"], categoria: "casaco", imageUrl: 'https://i.pinimg.com/236x/a7/93/97/a79397a80091c3ef17fe2ca1193afdf0--sweatshirt.jpg' },
-    { id: 11, marca: "luis vitão", modelo: "Mochila do Bem 12", preco: 54.99, tamanho: "G", cores: ["verde", "rosa"], categoria: "mochila", imageUrl: 'https://cf.shopee.com.br/file/67f7f6e6067b9f47cbc840f8a1b1dd12' },
+    { id: 13, marca: "luis vitão", modelo: "Mochila do Bem 12", preco: 54.99, tamanho: "Todos", cores: ["verde", "preto", "marrom"], categoria: "mochila", imageUrl: 'https://img.elo7.com.br/product/original/3362EA9/mochila-de-costas-ben-10-tam-m-costas.jpg' },
+    { id: 188, marca: "obama", modelo: "Mochila do Sônico", preco: 224.99, tamanho: "Todos", cores: ["preto", "vermelho", "azul"], categoria: "mochila", imageUrl: 'https://i.ibb.co/WprHbQP/D-NQ-NP-739539-MLB51202382033-082022-W-removebg-preview.png' },
+    { id: 127, marca: "lula", modelo: "Mochila do Sheregue", preco: 73.22, tamanho: "Todos", cores: ["verde", "preto", "amarelo"], categoria: "mochila", imageUrl: 'https://i.ibb.co/G3QZGV4/Ezxp-S2-AWQAAP8-Wc-removebg-preview.png' },
+    { id: 128, marca: "lula", modelo: "Caneca Bolsotsé", preco: 13.22, tamanho: "Todos", cores: ["branco", "vermelho"], categoria: "caneca", imageUrl: 'https://i.ibb.co/wcKQFCG/7a6057063a1274ed947a5db31a78d1e5-removebg-preview-2.png' },
 ];
 const rootElement = document.querySelector("#root");
 const checkboxCategoria = document.querySelector("#checkbox-filtro-categoria");

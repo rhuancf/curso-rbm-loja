@@ -112,8 +112,8 @@ input:focus + span {
 
 .imagem-produto:hover {
   transition: all 1s;
-  width: 270px;
-  height: 300px;
+  width: 270px !important;
+  height: 300px !important;
 }
 
 .item-info-container {
@@ -297,4 +297,20 @@ a:hover
   position: absolute;
   margin-top: 4px;
   left: 160px;
+}
+
+footer {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  flex-direction: column;
+  color: lightgray;
+  font-family: sora;
+  font-size: 12px;
+  opacity: 0.3;
+  margin-top: -20px;
+}
+
+#imagem-188 {
+  width: 180px;
 }
