@@ -15,7 +15,7 @@ const produtos:Produto[] = [
   { id: 11, marca: "GAP", modelo: "Moletom GAP", preco: 354.99, tamanho:"G", cores:["cinza", "rosa"], categoria:"casaco", imageUrl:'https://i.pinimg.com/236x/a7/93/97/a79397a80091c3ef17fe2ca1193afdf0--sweatshirt.jpg'},
   { id: 13, marca: "luis vitão", modelo: "Mochila do Bem 12", preco: 54.99, tamanho:"Todos", cores:["verde", "preto", "marrom"], categoria:"mochila", imageUrl:'https://img.elo7.com.br/product/original/3362EA9/mochila-de-costas-ben-10-tam-m-costas.jpg'},
   { id: 188, marca: "obama", modelo: "Mochila do Sônico", preco: 224.99, tamanho:"Todos", cores:["preto", "vermelho", "azul"], categoria:"mochila", imageUrl:'https://i.ibb.co/WprHbQP/D-NQ-NP-739539-MLB51202382033-082022-W-removebg-preview.png'},
-  { id: 127, marca: "lula", modelo: "Mochila do Sheregue", preco: 73.22, tamanho:"Todos", cores:["verde", "preto", "amarelo"], categoria:"mochila", imageUrl:'https://i.ibb.co/G3QZGV4/Ezxp-S2-AWQAAP8-Wc-removebg-preview.png'},
+  { id: 127, marca: "marvel", modelo: "Mochila do Sheregue", preco: 73.22, tamanho:"Todos", cores:["verde", "preto", "amarelo"], categoria:"mochila", imageUrl:'https://i.ibb.co/G3QZGV4/Ezxp-S2-AWQAAP8-Wc-removebg-preview.png'},
   { id: 128, marca: "lula", modelo: "Caneca Bolsotsé", preco: 13.22, tamanho:"Todos", cores:["branco", "vermelho"], categoria:"caneca", imageUrl:'https://i.ibb.co/wcKQFCG/7a6057063a1274ed947a5db31a78d1e5-removebg-preview-2.png'},
 ];
 
@@ -104,7 +104,7 @@ function filtraTamanho(arrayDeProdutos:Produto[] = produtos) {
   }
   return newProdutos;
 }
-function filtraPreco(arrayDeProdutos:Produto[] = produtos) {
+function ordenaPreco(arrayDeProdutos:Produto[] = produtos) {
   const selectFiltroPrecoValue = (selectFiltroPreco as HTMLSelectElement).value;
   let newProdutos:Produto[] = arrayDeProdutos;
   if(selectFiltroPrecoValue === 'crescente'){
@@ -150,7 +150,7 @@ function filtraCor(arrayDeProdutos:Produto[] = produtos) {
 function aplicaFiltros() {
   let newProdutos = filtraCategoria();
   newProdutos = filtraTamanho(newProdutos);
-  newProdutos = filtraPreco(newProdutos);
+  newProdutos = ordenaPreco(newProdutos);
   newProdutos = filtraCor(newProdutos);
   render(newProdutos);
   scaleFontSize();
