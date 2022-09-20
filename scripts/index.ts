@@ -84,7 +84,6 @@ function filtraCategoria (arrayDeProdutos:Produto[] = produtos) {
   let newProdutos:Produto[] = arrayDeProdutos;
   if(checkboxCategoriaChecked) {
     const inputFiltroCategoriaValue = (inputFiltroCategoria as HTMLInputElement).value.toLowerCase();
-    console.log(inputFiltroCategoriaValue);
     newProdutos = newProdutos.filter((produto) => produto['categoria'].includes(inputFiltroCategoriaValue));
 
   }
@@ -113,7 +112,7 @@ function filtraPreco(arrayDeProdutos:Produto[] = produtos) {
   return newProdutos;
 }
 
-function filtraCor (arrayDeProdutos:Produto[] = produtos) {
+function filtraCor(arrayDeProdutos:Produto[] = produtos) {
   const checkboxCorChecked = (checkboxCor as HTMLInputElement).checked;
   let newProdutos = arrayDeProdutos;
   if(checkboxCorChecked) {
@@ -128,7 +127,6 @@ function filtraCor (arrayDeProdutos:Produto[] = produtos) {
       });
   
     }
-    console.log(newProdutos);
     const inputFiltroCor2Value = (inputFiltroCor2 as HTMLInputElement).value.toLowerCase();
     if(inputFiltroCor2Value !== ''){
       newProdutos = newProdutos.filter((produto) => {
@@ -140,7 +138,6 @@ function filtraCor (arrayDeProdutos:Produto[] = produtos) {
       });
   
     }
-    console.log(newProdutos);
   }
   return newProdutos;
 }

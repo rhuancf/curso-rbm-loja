@@ -293,3 +293,8 @@ a:hover
   color: lightslategray;
 }
 
+.menu-icon {
+  position: absolute;
+  margin-top: 4px;
+  left: 160px;
+}
