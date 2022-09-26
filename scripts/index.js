@@ -37,7 +37,7 @@ function render(itens) {
         rootElement.innerHTML = "";
         itens.forEach((item) => {
             rootElement.innerHTML += `
-        <div class="item-wrapper">
+        <div class="item-wrapper hidden" id="card-id-${item.id}">
           <div class="item-name">
             <h2>${item.modelo}</h2>
           </div>
@@ -137,6 +137,7 @@ function aplicaFiltros() {
     newProdutos = filtraCor(newProdutos);
     render(newProdutos);
     scaleFontSize();
+    transitionEffect(newProdutos.length);
 }
 function eventListenerHandleInputCategoria() {
     inputFiltroCategoria === null || inputFiltroCategoria === void 0 ? void 0 : inputFiltroCategoria.addEventListener("keyup", aplicaFiltros);
@@ -168,3 +169,51 @@ eventListenerHandleCheckboxCor();
 eventListenerHandleInputCor1();
 eventListenerHandleInputCor2();
 scaleFontSize();
+const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+        // console.log(entry);
+        if (entry.isIntersecting) {
+            entry.target.classList.add('show');
+        }
+        else {
+            entry.target.classList.remove('show');
+        }
+    });
+});
+// if(rootElement) {
+//   // console.log(rootElement.children.length);
+//   for(let i = 0; i < rootElement.children.length; i++) {
+//     const card = document.querySelector('#root .item-wrapper:nth-child(' + i + ')');
+//     //  console.log(card);
+//      if(card)card.classList.add('delay');
+//     //  (card as HTMLObjectElement).style.transitionDelay = i + "00ms";
+//   }           
+// };
+function transitionEffect(numeroDeElementos = 0) {
+    // Todo:  Remover transição ao filtrar.
+    // if(numeroDeElementos === produtos.length) {
+    //   const teste = document.querySelectorAll('.item-wrapper');
+    //   const teste2 = Array.from(teste)
+    //   teste2.forEach((el) =>{
+    //     if(el) {(el as HTMLObjectElement).style.transitionDelay = "1ms";}
+    //   })
+    // }
+    const hiddenElements = document.querySelectorAll('.hidden');
+    console.log(hiddenElements);
+    hiddenElements.forEach((el) => observer.observe(el));
+    const arrayTodosOsCards = Array.from(hiddenElements);
+    let delay = 100;
+    let columnCount = 0;
+    arrayTodosOsCards.forEach((el) => {
+        if (el)
+            el.style.transitionDelay = delay.toString() + "ms";
+        delay += 100;
+        columnCount++;
+        // considerando cada linha com 4 colunas
+        if (columnCount === 4) {
+            delay = 100;
+            columnCount = 0;
+        }
+    });
+}
+transitionEffect();
