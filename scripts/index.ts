@@ -19,7 +19,6 @@ const produtos:Produto[] = [
   { id: 128, marca: "lula", modelo: "Caneca Bolsotsé", preco: 13.22, tamanho:"Todos", cores:["branco", "vermelho"], categoria:"caneca", imageUrl:'https://i.ibb.co/wcKQFCG/7a6057063a1274ed947a5db31a78d1e5-removebg-preview-2.png'},
 ];
 
-
 const rootElement = document.querySelector("#root");
 const checkboxCategoria = document.querySelector("#checkbox-filtro-categoria");
 const inputFiltroCategoria = document.querySelector("#input-filtro-categoria");
@@ -28,16 +27,6 @@ const selectFiltroPreco = document.querySelector("#select-filtro-preco");
 const checkboxCor = document.querySelector("#checkbox-filtro-cor");
 const inputFiltroCor1 = document.querySelector("#input-filtro-cor1");
 const inputFiltroCor2 = document.querySelector("#input-filtro-cor2");
-
-// function criarFiltro(tipo: keyof Produto, valor:string)  {
-//   return {
-//     [tipo]: valor,
-//   }
-
-// }
-
-// const filtro = (criarFiltro("modelo", "produto do naruto"));
-// console.log(filtro);
 
 function render(itens: Produto[]) {
   if (rootElement) {
@@ -154,10 +143,8 @@ function aplicaFiltros() {
   newProdutos = filtraCor(newProdutos);
   render(newProdutos);
   scaleFontSize();
-
   transitionEffect(newProdutos.length);
   
-
 }
 
 function eventListenerHandleInputCategoria() {
@@ -192,47 +179,34 @@ eventListenerHandleInputCor1();
 eventListenerHandleInputCor2();
 scaleFontSize();
 
+function transitionEffect(numeroFiltrado:number = 0) {
+  const cardsNaTela = document.querySelectorAll('.item-wrapper');
+  const arrayCardsNaTela = Array.from(cardsNaTela)
 
-const observer = new IntersectionObserver((entries) => {
-  entries.forEach((entry) => {
-      // console.log(entry);
-      if(entry.isIntersecting) {
-        entry.target.classList.add('show');
-      } else {
-        entry.target.classList.remove('show');
-      }
-  })
-});
+  // Remover transição ao filtrar.
+  if(numeroFiltrado === cardsNaTela.length) {
+    arrayCardsNaTela.forEach((el) =>{
+      // if(el) {(el as HTMLObjectElement).style.transitionDelay = "1ms";}
+      el.classList.add('show');
+    })
+  }
+  //-----------------------------------
 
-// if(rootElement) {
-//   // console.log(rootElement.children.length);
-//   for(let i = 0; i < rootElement.children.length; i++) {
-//     const card = document.querySelector('#root .item-wrapper:nth-child(' + i + ')');
-//     //  console.log(card);
-//      if(card)card.classList.add('delay');
-//     //  (card as HTMLObjectElement).style.transitionDelay = i + "00ms";
-//   }           
-// };
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+        if(entry.isIntersecting) {
+          entry.target.classList.add('show');
+        } else {
+          entry.target.classList.remove('show');
+        }
+    })
+  });
 
-function transitionEffect(numeroDeElementos:number = 0) {
-// Todo:  Remover transição ao filtrar.
-
-  // if(numeroDeElementos === produtos.length) {
-  //   const teste = document.querySelectorAll('.item-wrapper');
-  //   const teste2 = Array.from(teste)
-  //   teste2.forEach((el) =>{
-  //     if(el) {(el as HTMLObjectElement).style.transitionDelay = "1ms";}
-  //   })
-  // }
-  const hiddenElements = document.querySelectorAll('.hidden');
-  console.log(hiddenElements);
-  hiddenElements.forEach((el) => observer.observe(el));
-
-  const arrayTodosOsCards = Array.from(hiddenElements)
+  cardsNaTela.forEach((el) => observer.observe(el));
   let delay = 100;
   let columnCount = 0;
 
-  arrayTodosOsCards.forEach((el) =>{
+  arrayCardsNaTela.forEach((el) =>{
     if(el) (el as HTMLObjectElement).style.transitionDelay = delay.toString() + "ms";
     delay +=100;
     columnCount++;
@@ -241,9 +215,7 @@ function transitionEffect(numeroDeElementos:number = 0) {
       delay = 100;
       columnCount = 0;
     }
-
   })  
-
 }
 
 transitionEffect(); 

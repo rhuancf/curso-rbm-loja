@@ -160,10 +160,6 @@ input[type="text"]:active {
 
 select {
   appearance: none;
-  /* border: 0; */
-  /* outline: 0; */
-  /* font: inherit; */
-  /* Personalize */
   width: 10em;
   height: 2em;
   padding: 0 4em 0 1em;
@@ -178,10 +174,6 @@ select {
   border-radius: 0.6em;
   box-shadow: 0 0 1em 0 rgba(0, 0, 0, 0.2);
   cursor: pointer;
-  /* <option> colors */
-  /* Remove focus outline */
-  /* Remove IE arrow */
-  /* background-image: url('https://upload.wikimedia.org/wikipedia/commons/9/9d/Caret_down_font_awesome_whitevariation.svg'); */
   background-color: transparent;
 }
 select option {
@@ -382,19 +374,19 @@ footer {
 
 .hidden {
   opacity: 0;
-  filter:blur(3px);
+  filter: blur(3px);
   transform: translateX(-100%);
   transition: all 1s;
 }
 
 .show {
   opacity: 1;
-  filter:blur(0);
+  filter: blur(0);
   transform: translateX(0);
 }
 
-@media(prefers-reduced-motion) {
+@media (prefers-reduced-motion) {
   .hidden {
-    transition:none;
+    transition: none;
   }
 }

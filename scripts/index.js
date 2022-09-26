@@ -169,42 +169,31 @@ eventListenerHandleCheckboxCor();
 eventListenerHandleInputCor1();
 eventListenerHandleInputCor2();
 scaleFontSize();
-const observer = new IntersectionObserver((entries) => {
-    entries.forEach((entry) => {
-        // console.log(entry);
-        if (entry.isIntersecting) {
-            entry.target.classList.add('show');
-        }
-        else {
-            entry.target.classList.remove('show');
-        }
+function transitionEffect(numeroFiltrado = 0) {
+    const cardsNaTela = document.querySelectorAll('.item-wrapper');
+    const arrayCardsNaTela = Array.from(cardsNaTela);
+    // Remover transição ao filtrar.
+    if (numeroFiltrado === cardsNaTela.length) {
+        arrayCardsNaTela.forEach((el) => {
+            // if(el) {(el as HTMLObjectElement).style.transitionDelay = "1ms";}
+            el.classList.add('show');
+        });
+    }
+    //-----------------------------------
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('show');
+            }
+            else {
+                entry.target.classList.remove('show');
+            }
+        });
     });
-});
-// if(rootElement) {
-//   // console.log(rootElement.children.length);
-//   for(let i = 0; i < rootElement.children.length; i++) {
-//     const card = document.querySelector('#root .item-wrapper:nth-child(' + i + ')');
-//     //  console.log(card);
-//      if(card)card.classList.add('delay');
-//     //  (card as HTMLObjectElement).style.transitionDelay = i + "00ms";
-//   }           
-// };
-function transitionEffect(numeroDeElementos = 0) {
-    // Todo:  Remover transição ao filtrar.
-    // if(numeroDeElementos === produtos.length) {
-    //   const teste = document.querySelectorAll('.item-wrapper');
-    //   const teste2 = Array.from(teste)
-    //   teste2.forEach((el) =>{
-    //     if(el) {(el as HTMLObjectElement).style.transitionDelay = "1ms";}
-    //   })
-    // }
-    const hiddenElements = document.querySelectorAll('.hidden');
-    console.log(hiddenElements);
-    hiddenElements.forEach((el) => observer.observe(el));
-    const arrayTodosOsCards = Array.from(hiddenElements);
+    cardsNaTela.forEach((el) => observer.observe(el));
     let delay = 100;
     let columnCount = 0;
-    arrayTodosOsCards.forEach((el) => {
+    arrayCardsNaTela.forEach((el) => {
         if (el)
             el.style.transitionDelay = delay.toString() + "ms";
         delay += 100;
