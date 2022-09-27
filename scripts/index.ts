@@ -1,23 +1,4 @@
-type Produto = { id: number; marca: string; modelo: string; preco: number; imageUrl:string; tamanho:string; cores:string[]; categoria:string };
-
-const produtos:Produto[] = [
-  { id: 1, marca: "lacosta", modelo: "Blusa do naruto", preco: 13.5, tamanho:"P", cores:["amarelo", "preto", "vermelho"], categoria:"blusa", imageUrl:'https://http2.mlstatic.com/D_NQ_NP_627789-MLB46515960810_062021-W.jpg'},
-  { id: 2, marca: "lafrente", modelo: "Casaco do one piece", preco: 67.20, tamanho:"G", cores:["branco", "preto", "amarelo"], categoria:"casaco", imageUrl:'https://http2.mlstatic.com/D_NQ_NP_2X_725801-MLB44062191039_112020-F.webp'},
-  { id: 311, marca: "ardidas", modelo: "Blusa do tokyo ghoul", preco: 12.5, tamanho:"M", cores:["preto", "branco", "vermelho"], categoria:"blusa", imageUrl:'https://img.elo7.com.br/product/zoom/1CA16D8/camiseta-tokyo-ghoul-kaneki-camiseta.jpg'},
-  { id: 4, marca: "puma", modelo: "Camisa do jujutsu no kaizen", preco: 15.99, tamanho:"G", cores:["preto", "branco", "azul", "verde"], categoria:"camisa", imageUrl:'https://www.streetanime.com.br/arquivos/PRODUTOS/3501619183158948393/1_GG_Camisa-Jujutsu-Kaisen-Yuji-Megumi-Nobara-Sat.jpg'},
-  { id: 5, marca: "calvo cleide", modelo: "Camisa do kimetsu no yaiba", preco: 32.99, tamanho:"M", cores:["branco", "verde", "preto"], categoria:"camisa", imageUrl:'https://cf.shopee.com.br/file/238ed9ae75bc8490cb57eee1ed352c2e'},
-  { id: 6, marca: "luis vitão", modelo: "Blusa do boruto", preco: 12.99, tamanho:"G", cores:["preto", "amarelo", "azul"], categoria:"blusa", imageUrl:'https://cf.shopee.com.br/file/97284bb98b6c4805e43b2c1903d5db08'},
-  { id: 21, marca: "cavalera", modelo: "Blusa do cavalo de fogo", preco: 8.99, tamanho:"GG", cores:["branco", "roxo","vermelho"], categoria:"blusa", imageUrl:'http://d3ugyf2ht6aenh.cloudfront.net/stores/186/674/products/camiseta-cinza-cavalo-de-fogo-nostalgia-desenho-animado-anos-70-80-90-16301-f2bcfc1253b9608e3915709119586563-640-0.jpg'},
-  { id: 123, marca: "reserva", modelo: "Blusa do cavalo de fogo azul", preco: 25.99, tamanho:"G", cores:["azul", "branco", "vermelho", "preto"], categoria:"blusa", imageUrl:'https://http2.mlstatic.com/D_NQ_NP_768880-MLB46470593884_062021-O.jpg'},
-  { id: 113, marca: "ardidas", modelo: "Tenis ardidas branco", preco: 200.99, tamanho:"Todos", cores:["branco", "preto"], categoria:"tenis", imageUrl:'https://cdn.dooca.store/1290/products/m-grand-court-base-bcopreto-1.jpg?v=1623520192&webp=0'},
-  { id: 87, marca: "mike", modelo: "Tenis mike preto", preco: 354.99, tamanho:"Todos", cores:["preto", "vermelho"], categoria:"tenis", imageUrl:'https://imgs.extra.com.br/1519876725/1xg.jpg?imwidth=292'},
-  { id: 17, marca: "Gucci", modelo: "Calça Jeans Feminina", preco: 154.99, tamanho:"G", cores:["azul"], categoria:"calça", imageUrl:'https://i.pinimg.com/564x/e7/c6/0c/e7c60c558fab8b7355b1fdd189742a9b.jpg'},
-  { id: 11, marca: "GAP", modelo: "Moletom GAP", preco: 354.99, tamanho:"G", cores:["cinza", "rosa"], categoria:"casaco", imageUrl:'https://i.pinimg.com/236x/a7/93/97/a79397a80091c3ef17fe2ca1193afdf0--sweatshirt.jpg'},
-  { id: 13, marca: "luis vitão", modelo: "Mochila do Bem 12", preco: 54.99, tamanho:"Todos", cores:["verde", "preto", "marrom"], categoria:"mochila", imageUrl:'https://img.elo7.com.br/product/original/3362EA9/mochila-de-costas-ben-10-tam-m-costas.jpg'},
-  { id: 188, marca: "obama", modelo: "Mochila do Sônico", preco: 224.99, tamanho:"Todos", cores:["preto", "vermelho", "azul"], categoria:"mochila", imageUrl:'https://i.ibb.co/WprHbQP/D-NQ-NP-739539-MLB51202382033-082022-W-removebg-preview.png'},
-  { id: 127, marca: "marvel", modelo: "Mochila do Sheregue", preco: 73.22, tamanho:"Todos", cores:["verde", "preto", "amarelo"], categoria:"mochila", imageUrl:'https://i.ibb.co/G3QZGV4/Ezxp-S2-AWQAAP8-Wc-removebg-preview.png'},
-  { id: 128, marca: "lula", modelo: "Caneca Bolsotsé", preco: 13.22, tamanho:"Todos", cores:["branco", "vermelho"], categoria:"caneca", imageUrl:'https://i.ibb.co/wcKQFCG/7a6057063a1274ed947a5db31a78d1e5-removebg-preview-2.png'},
-];
+import {produtos, Produto} from "./produtos.js";
 
 const rootElement = document.querySelector("#root");
 const checkboxCategoria = document.querySelector("#checkbox-filtro-categoria");
@@ -219,3 +200,11 @@ function transitionEffect(numeroFiltrado:number = 0) {
 }
 
 transitionEffect(); 
+
+const linkSobre = document.getElementById("link-sobre");
+if(linkSobre)linkSobre.addEventListener("click", scrollToBottom);
+
+function scrollToBottom() {
+  window.scrollTo(0, document.body.scrollHeight);
+
+}
